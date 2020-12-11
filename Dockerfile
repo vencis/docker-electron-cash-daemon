@@ -16,7 +16,7 @@ RUN apk add --no-cache --virtual .build-deps build-base gcc musl-dev libffi-dev 
   chown ${ELECTRONCASH_USER} ${ELECTRONCASH_HOME}/.electron-cash /data && \
   cd ${ELECTRONCASH_HOME}/Electron-Cash/ && bash contrib/make_secp && \
   pip3 install --no-cache-dir ${ELECTRONCASH_HOME}/Electron-Cash && \
-  rm -rf ${ELECTRONCASH_HOME}/Electron-Cash/ && \
+  rm -rf ${ELECTRONCASH_HOME}/Electron-Cash && \
   apk del --no-cache .build-deps
 
 USER $ELECTRONCASH_USER
