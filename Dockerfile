@@ -22,7 +22,7 @@ RUN apk add --no-cache --virtual .build-deps build-base gcc musl-dev libffi-dev 
 USER $ELECTRONCASH_USER
 WORKDIR $ELECTRONCASH_HOME
 VOLUME /data
-EXPOSE 7000
+EXPOSE 7100
 
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
