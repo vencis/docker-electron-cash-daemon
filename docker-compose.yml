@@ -1,0 +1,15 @@
+version: '3'
+services:
+  electron-cash:
+    container_name: electron-cash-daemon
+    image: internetportal/docker-electron-cash-daemon
+    ports:
+      - 7100:7100
+    environment:
+      ELECTRONCASH_USER: electroncash
+      ELECTRONCASH_PASSWORD: secret-password
+      TESTNET: "False"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+    network_mode: bridge
