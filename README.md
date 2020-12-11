@@ -21,7 +21,7 @@ Running with Docker:
 chown -R 1000:1000 ./data
 docker run --rm --name electron-cash-daemon \
     --env TESTNET=false \
-    --publish 127.0.0.1:7000:7000 \
+    --publish 127.0.0.1:7100:7100 \
     --volume /srv/electrum:/data \
     internetportal/docker-electron-cash-daemon
 ```
@@ -32,16 +32,18 @@ docker exec -it electron-cash-daemon electron-cash daemon status
 docker exec -it electron-cash-daemon electron-cash getbalance
 {
     "auto_connect": true,
-    "blockchain_height": 660633,
+    "blockchain_height": 665455,
     "connected": true,
-    "default_wallet": "/home/electrum/.electrum/wallets/default_wallet",
-    "fee_per_kb": 59261,
-    "path": "/home/electrum/.electrum",
-    "server": "blockstream.info",
-    "server_height": 660633,
+    "fee_per_kb": 1000,
+    "path": "/home/electroncash/.electron-cash",
+    "server": "bch.imaginary.cash",
+    "server_height": 665455,
     "spv_nodes": 10,
-    "version": "4.0.6"
-}
+    "version": "4.2.3",
+    "wallets": {
+        "/data/wallets/default_wallet": true
+    }
+
 ```
 
 
