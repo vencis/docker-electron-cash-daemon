@@ -10,10 +10,9 @@ ENV ELECTRONCASH_HOME /home/$ELECTRONCASH_USER
 
 RUN apk add --no-cache --virtual .build-deps build-base gcc musl-dev libffi-dev openssl-dev automake autoconf libtool git util-linux bash && \
   adduser -D $ELECTRONCASH_USER && \
-  mkdir -p /data ${ELECTRONCASH_HOME}/.electron-cash && \
-  #ln -sf /data ${ELECTRONCASH_HOME}/.electron-cash && \
+  mkdir -p ${ELECTRONCASH_HOME}/.electron-cash && \
   cd ${ELECTRONCASH_HOME}/ && git clone https://github.com/Electron-Cash/Electron-Cash.git && \
-  chown ${ELECTRONCASH_USER} ${ELECTRONCASH_HOME}/.electron-cash /data && \
+  chown ${ELECTRONCASH_USER} ${ELECTRONCASH_HOME}/.electron-cash && \
   cd ${ELECTRONCASH_HOME}/Electron-Cash/ && bash contrib/make_secp && \
   pip3 install --no-cache-dir ${ELECTRONCASH_HOME}/Electron-Cash && \
   rm -rf ${ELECTRONCASH_HOME}/Electron-Cash && \
@@ -21,7 +20,7 @@ RUN apk add --no-cache --virtual .build-deps build-base gcc musl-dev libffi-dev 
 
 USER $ELECTRONCASH_USER
 WORKDIR $ELECTRONCASH_HOME
-#VOLUME /data
+VOLUME $ELECTRONCASH_HOME/.electron-cash
 EXPOSE 7100
 
 COPY docker-entrypoint.sh /usr/local/bin/
