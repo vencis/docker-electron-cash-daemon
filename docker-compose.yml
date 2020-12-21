@@ -10,7 +10,7 @@ services:
       ELECTRONCASH_PASSWORD: secret-password
       TESTNET: "False"
     volumes:
-      - ./data:/data
+      - ./data:/home/electroncash/.electron-cash
     restart: unless-stopped
     network_mode: bridge
     
