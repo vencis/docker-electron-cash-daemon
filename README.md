@@ -18,6 +18,7 @@
 Running with Docker:
 
 ```bash
+mkdir -p ./data
 chown -R 1000:1000 ./data
 docker run --rm --name electron-cash-daemon \
     --env TESTNET=false \
@@ -32,17 +33,18 @@ docker exec -it electron-cash-daemon electron-cash daemon status
 docker exec -it electron-cash-daemon electron-cash getbalance
 {
     "auto_connect": true,
-    "blockchain_height": 665455,
+    "blockchain_height": 666873,
     "connected": true,
     "fee_per_kb": 1000,
     "path": "/home/electroncash/.electron-cash",
-    "server": "bch.imaginary.cash",
-    "server_height": 665455,
+    "server": "bch.cyberbits.eu",
+    "server_height": 666873,
     "spv_nodes": 10,
     "version": "4.2.3",
     "wallets": {
-        "/data/wallets/default_wallet": true
+        "/home/electroncash/.electron-cash/wallets/default_wallet": true
     }
+}
 
 ```
 
