@@ -19,7 +19,7 @@ electron-cash $FLAGS setconfig rpchost 0.0.0.0
 electron-cash $FLAGS setconfig rpcport 7100
 
 # Loading wallet if exists
-if [ -e "/home/electroncash/.electron-cash/wallets/default_wallet" ]
+if [ -e "/home/electroncash/.electron-cash/wallets/default_wallet" || -e "/home/electroncash/.electron-cash/testnet/wallets/default_wallet"]
 then
   echo "Loading wallet."
   electron-cash $FLAGS daemon load_wallet
