@@ -8,7 +8,8 @@ ENV ELECTRONCASH_USER electroncash
 ENV ELECTRONCASH_PASSWORD electroncashz    # XXX: CHANGE REQUIRED!
 ENV ELECTRONCASH_HOME /home/$ELECTRONCASH_USER
 
-RUN apk add --no-cache --virtual .build-deps build-base gcc musl-dev libffi-dev openssl-dev automake autoconf libtool git util-linux bash && \
+RUN apk update && apk upgrade && \  
+  apk add --no-cache --virtual .build-deps build-base gcc musl-dev libffi-dev openssl-dev automake autoconf libtool git util-linux bash && \
   adduser -D $ELECTRONCASH_USER && \
   mkdir -p ${ELECTRONCASH_HOME}/.electron-cash && \
   cd ${ELECTRONCASH_HOME}/ && git clone https://github.com/Electron-Cash/Electron-Cash.git && \
